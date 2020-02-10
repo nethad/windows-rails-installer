@@ -8,6 +8,7 @@ function refresh-path {
                 [System.Environment]::GetEnvironmentVariable("Path","User")
 }
 
+cd $Home
 mkdir railsgirls
 cd railsgirls
 
