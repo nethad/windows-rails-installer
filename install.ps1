@@ -1,3 +1,7 @@
+$RubyInstallerVersion = "2.6.5-1"
+$NodeJsVersion = "12.13.0"
+$GitVersion = "2.25.0"
+
 function refresh-path {
     $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") +
                 ";" +
@@ -10,13 +14,13 @@ cd railsgirls
 $CurrentDir = Convert-Path .
 
 "Downloading RubyInstaller... this could take a while..."
-(New-Object System.Net.WebClient).DownloadFile("https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.5-1/rubyinstaller-devkit-2.6.5-1-x64.exe", "$CurrentDir\rubyinstaller.exe")
+(New-Object System.Net.WebClient).DownloadFile("https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-$RubyInstallerVersion/rubyinstaller-devkit-$RubyInstallerVersion-x64.exe", "$CurrentDir\rubyinstaller.exe")
 "Downloading Yarn... this could take a while..."
-(New-Object System.Net.WebClient).DownloadFile("https://nodejs.org/dist/v12.13.0/node-v12.13.0-x64.msi", "$CurrentDir\nodejs.msi")
+(New-Object System.Net.WebClient).DownloadFile("https://nodejs.org/dist/v$NodeJsVersion/node-v$NodeJsVersion-x64.msi", "$CurrentDir\nodejs.msi")
 "Downloading NodeJS... this could take a while..."
 (New-Object System.Net.WebClient).DownloadFile("https://yarnpkg.com/latest.msi", "$CurrentDir\yarn.msi")
 "Downloading Git... this could take a while..."
-(New-Object System.Net.WebClient).DownloadFile("https://github.com/git-for-windows/git/releases/download/v2.25.0.windows.1/Git-2.25.0-64-bit.exe", "$CurrentDir\git.exe")
+(New-Object System.Net.WebClient).DownloadFile("https://github.com/git-for-windows/git/releases/download/v$GitVersion.windows.1/Git-$GitVersion-64-bit.exe", "$CurrentDir\git.exe")
 
 if (!(Test-Path rubyinstaller.exe)) {
   "###########################################################################"
@@ -70,7 +74,7 @@ $p = Start-Process $CurrentDir\rubyinstaller.exe -ArgumentList "/silent" -wait -
 # $p.ExitCode
 
 "Installing Git..."
-$p = Start-Process $CurrentDir\rubyinstaller.exe -ArgumentList "/silent" -wait -NoNewWindow -PassThru
+$p = Start-Process $CurrentDir\git.exe -ArgumentList "/silent" -wait -NoNewWindow -PassThru
 
 "Installing NodeJS..."
 $p = Start-Process msiexec.exe -Wait -ArgumentList "/I $CurrentDir\nodejs.msi /passive"
