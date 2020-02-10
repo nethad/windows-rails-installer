@@ -4,11 +4,8 @@ function refresh-path {
                 [System.Environment]::GetEnvironmentVariable("Path","User")
 }
 
-# Change to the script folder
-$fullPathIncFileName = $MyInvocation.MyCommand.Definition
-$currentScriptName = $MyInvocation.MyCommand.Name
-$currentExecutingPath = $fullPathIncFileName.Replace($currentScriptName, "")
-Set-Location $currentExecutingPath
+mkdir railsgirls
+cd railsgirls
 
 $CurrentDir = Convert-Path .
 
