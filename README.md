@@ -11,7 +11,7 @@ This is a single file PowerShell installation script. With the one-liner below e
 - Yarn
 - Git
 
-Check out the script that here: https://github.com/nethad/windows-rails-installer/blob/master/install.ps1
+Check out the script that here: https://raw.githubusercontent.com/nethad/windows-rails-installer/master/download_and_install_default.ps1
 
 Simply open the PowerShell (**not** ISE) as an administrator (right-click). It's possible to run without that, all the installers will ask you for permission first then and it's not fully automatic that way.
 
