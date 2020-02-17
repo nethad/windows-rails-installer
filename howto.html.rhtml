@@ -1,0 +1,16 @@
+<h1>Rails Installation</h1>
+
+<%- base_url =  "http://#{servlet_request.meta_vars["HTTP_HOST"]}" %>
+
+<h2>Step 1: Open PowerShell as an administrator</h2>
+
+<img src="/run-powershell-as-administrator.gif" height="400" />
+
+<h2>Step 2: Copy and paste this code into PowerShell</h2>
+
+<pre>
+Invoke-WebRequest `
+  -Uri "<%= "#{base_url}/download_and_install_from_mirror.ps1.rhtml" %>" `
+  -OutFile rails-install.ps1; `
+  .\rails-install.ps1
+</pre>
