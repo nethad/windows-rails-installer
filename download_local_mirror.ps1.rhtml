@@ -1,0 +1,14 @@
+<%- base_url =  "http://#{servlet_request.meta_vars["HTTP_HOST"]}" %>
+$RubyInstallerLink = "<%= "#{base_url}/rubyinstaller.exe" %>"
+$NodeJsLink = "<%= "#{base_url}/nodejs.msi" %>"
+$YarnLink = "<%= "#{base_url}/yarn.msi" %>"
+$GitLink = "<%= "#{base_url}/git.exe" %>"
+
+"Downloading RubyInstaller... this could take a while..."
+(New-Object System.Net.WebClient).DownloadFile($RubyInstallerLink, "$CurrentDir\rubyinstaller.exe")
+"Downloading Yarn... this could take a while..."
+(New-Object System.Net.WebClient).DownloadFile($NodeJsLink, "$CurrentDir\nodejs.msi")
+"Downloading NodeJS... this could take a while..."
+(New-Object System.Net.WebClient).DownloadFile($YarnLink, "$CurrentDir\yarn.msi")
+"Downloading Git... this could take a while..."
+(New-Object System.Net.WebClient).DownloadFile($GitLink, "$CurrentDir\git.exe")

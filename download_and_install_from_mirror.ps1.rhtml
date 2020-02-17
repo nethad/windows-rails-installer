@@ -1,0 +1,17 @@
+cd $Home
+mkdir rails-install
+cd rails-install
+
+<%- base_url =  "http://#{servlet_request.meta_vars["HTTP_HOST"]}" %>
+
+Invoke-WebRequest `
+  -Uri "<%= "#{base_url}/download_local_mirror.ps1.rhtml" %>" `
+  -OutFile download_local_mirror.ps1
+Invoke-WebRequest `
+  -Uri "<%= "#{base_url}/install.ps1" %>" `
+  -OutFile install.ps1 `
+
+$CurrentDir = Convert-Path .
+
+. $CurrentDir\download_local_mirror.ps1
+. $CurrentDir\install.ps1
