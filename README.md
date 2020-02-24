@@ -27,11 +27,13 @@ Invoke-WebRequest `
   .\rails-install.ps1
 ```
 
-## For the coaches
+## Mass Installation Mode ("Coach Mode"): Install from a local mirror
 
 If a lot of participants download the installers from the official source at the same time, almost any
 location will not have enough bandwidth capacity. This is why we download all the installers locally
 and then serve them with a webrick server. Only Ruby needs to be installed for this.
+
+After the server is started, it will point you to an HTML page it serves where you will see how participants can install Rails from your server, the same way they can install it from the official source mentioned above.
 
 ```powershell
 # This is needed to let our script run
