@@ -15,7 +15,6 @@ Check out the script that here: https://raw.githubusercontent.com/nethad/windows
 
 Simply open the PowerShell (**not** ISE) as an administrator (right-click). It's possible to run without that, all the installers will ask you for permission first then and it's not fully automatic that way:
 
-[https://raw.githubusercontent.com/nethad/windows-rails-installer/master/run-powershell-as-administrator.gif](PowerShell)
 ![](run-powershell-as-administrator.gif?raw=true)
 
 Then paste these lines and press Enter:
