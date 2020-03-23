@@ -20,10 +20,8 @@ Simply open the PowerShell (**not** ISE) as an administrator (right-click). It's
 Then paste these lines and press Enter:
 
 ```powershell
-Invoke-WebRequest `
-  -Uri "https://raw.githubusercontent.com/nethad/windows-rails-installer/master/download_and_install_default.ps1" `
-  -OutFile rails-install.ps1; `
-  .\rails-install.ps1
+cd $Home; powershell -exec bypass -noni -nop -c "iex(New-Object  System.Net.WebClient).DownloadString( ` 
+  'https://raw.githubusercontent.com/nethad/windows-rails-installer/master/download_and_install_default.ps1')"
 ```
 
 ## Mass Installation Mode ("Coach Mode"): Install from a local mirror
@@ -36,7 +34,7 @@ After the server is started, it will point you to an HTML page it serves where y
 
 ```powershell
 # This is needed to let our script run
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 git clone https://github.com/nethad/windows-rails-installer.git
 cd windows-rails-installer
 # Download all installers to this folder as a local mirror
